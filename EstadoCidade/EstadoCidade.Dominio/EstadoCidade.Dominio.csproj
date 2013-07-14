@@ -43,7 +43,6 @@
     <Compile Include="Estado.cs" />
     <Compile Include="Intefaces\IRepositorio.cs" />
     <Compile Include="Intefaces\IRepositorioDeCidades.cs" />
-    <Compile Include="Intefaces\IRepositorioDeEstados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

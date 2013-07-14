@@ -6,4 +6,7 @@ using System.Threading.Tasks;
 
 namespace EstadoCidade.Aplicacao
 {
+    public class Class1
+    {
+    }
 }
