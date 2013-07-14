@@ -16,7 +16,8 @@ namespace EstadoCidade.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
-                "~/Content/bootstrap-responsive.css"));
+                "~/Content/bootstrap-responsive.css",
+                "~/Content/site.css"));
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿html {
-    background-color: #e2e2e2;
-    margin: 0;
-    padding: 0;
+﻿.input-validation-error {
+    background-color: #FFD6D6 !important;
 }
 
-body {
-    background-color: #fff;
-    border-top: solid 10px #000;
-    color: #333;
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    margin: 0;
-    padding: 0;
+.field-validation-error {
+    font-size: 12px;
+    color: #FF4242;
+    font-weight: bold;
+    clear: both;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 5px;
 }

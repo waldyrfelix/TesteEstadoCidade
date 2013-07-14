@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EstadoCidade.Dominio.Intefaces;
+using EstadoCidade.Web.Models;
 
 namespace EstadoCidade.Web.Controllers
 {
@@ -23,9 +24,23 @@ namespace EstadoCidade.Web.Controllers
         }
 
 
-        public ActionResult Create()
+        public ActionResult Cadastrar()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Cadastrar(EstadoViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var estado = viewModel.Model();
+                _repositorioDeEstados.Inserir(estado);
+                return RedirectToAction("Index");
+            }
+
+            return View(viewModel);
         }
 
         public ActionResult Edit(int id)
