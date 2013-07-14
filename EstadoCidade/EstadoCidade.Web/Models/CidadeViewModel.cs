@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EstadoCidade.Dominio;
+﻿using EstadoCidade.Dominio;
 
 namespace EstadoCidade.Web.Models
 {

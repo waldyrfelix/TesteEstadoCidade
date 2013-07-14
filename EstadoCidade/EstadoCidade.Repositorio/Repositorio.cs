@@ -55,7 +55,7 @@ namespace EstadoCidade.Repositorio
 
             ExecutarComando((command) =>
                 {
-                    command.CommandText = SqlParaObterUm;
+                    command.CommandText = SqlParaObterTodos;
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                         objetos.Add(HidratarObjeto(reader));
@@ -99,6 +99,7 @@ namespace EstadoCidade.Repositorio
         protected abstract string SqlParaDeletar { get; }
         protected abstract string SqlParaInserir { get; }
         protected abstract string SqlParaObterUm { get; }
+        protected abstract string SqlParaObterTodos { get; }
         protected abstract T HidratarObjeto(DbDataReader dataReader);
         protected abstract IEnumerable<DbParameter> PreencherParametros(DbCommand command, T objeto);
 

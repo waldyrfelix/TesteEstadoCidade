@@ -28,8 +28,8 @@ namespace EstadoCidade.Web.DependencyResolution
         {
             ObjectFactory.Initialize(x =>
                 {
+                    x.For<IRepositorioDeEstados>().Use<RepositorioDeEstados>();
                     x.For<IRepositorioDeCidades>().Use<RepositorioDeCidades>();
-                    x.For<IRepositorioDeEstados>().Use<RepositorioDeEstado>();
                 });
             return ObjectFactory.Container;
         }

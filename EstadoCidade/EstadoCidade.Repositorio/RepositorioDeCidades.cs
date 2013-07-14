@@ -28,6 +28,11 @@ namespace EstadoCidade.Repositorio
             get { return "select id, nome, capital, estadoId from cidade where id = @id"; }
         }
 
+        protected override string SqlParaObterTodos
+        {
+            get { return "select id, nome, capital, estadoId from cidade"; }
+        }
+
         protected override Cidade HidratarObjeto(DbDataReader dataReader)
         {
             return new Cidade(

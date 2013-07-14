@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using EstadoCidade.Dominio;
 using EstadoCidade.Dominio.Intefaces;
-using System.Linq;
 using EstadoCidade.Web.Models;
 
 namespace EstadoCidade.Web.Controllers.Api
@@ -18,50 +17,64 @@ namespace EstadoCidade.Web.Controllers.Api
             _repositorioDeCidades = repositorioDeCidades;
         }
 
-        // GET api/cidade
         public IEnumerable<CidadeViewModel> Get()
         {
-            return _repositorioDeCidades.Todos()
-                .Select(TransformarEmViewModel);
+            return _repositorioDeCidades.Todos().Select(ControllerHelper.TransformarParaViewModel);
         }
 
-        // GET api/cidade/5
-        public HttpResponseMessage Get(int id)
+
+        public CidadeViewModel Get(int id)
         {
             var cidade = _repositorioDeCidades.Obter(id);
             if (cidade == null)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Cidade não encontrada.");
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, TransformarEmViewModel(cidade));
+            return ControllerHelper.TransformarParaViewModel(cidade);
         }
 
-
-        // POST api/cidade
-        public void Post([FromBody]CidadeViewModel cidade)
+        public HttpResponseMessage Put(int id, CidadeViewModel cidade)
         {
-            _repositorioDeCidades.Inserir(cidade.Model());
-        }
-
-        // PUT api/cidade/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/cidade/5
-        public void Delete(int id)
-        {
-        }
-
-
-        private CidadeViewModel TransformarEmViewModel(Cidade cidade)
-        {
-            return new CidadeViewModel
+            if (!ModelState.IsValid)
             {
-                Id = cidade.Id,
-                Nome = cidade.Nome
-            };
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+
+            if (id != cidade.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+
+            _repositorioDeCidades.Atualizar(cidade.Model());
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+        public HttpResponseMessage Post(CidadeViewModel cidade)
+        {
+            if (ModelState.IsValid)
+            {
+                _repositorioDeCidades.Inserir(cidade.Model());
+
+                return Request.CreateResponse(HttpStatusCode.Created, cidade);
+            }
+            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+        }
+
+        public HttpResponseMessage Delete(int id)
+        {
+            var cidade = _repositorioDeCidades.Obter(id);
+            if (cidade == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            _repositorioDeCidades.Excluir(cidade);
+
+            return Request.CreateResponse(HttpStatusCode.OK, cidade);
+        }
+
+       
     }
 }
