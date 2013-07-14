@@ -43,24 +43,25 @@ namespace EstadoCidade.Web.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
-            return View();
+            var estado = _repositorioDeEstados.Obter(id);
+            return View(ControllerHelper.TransformarParaViewModel(estado));
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar(EstadoViewModel viewModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add delete logic here
+                var estado = viewModel.Model();
+                _repositorioDeEstados.Atualizar(estado);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(viewModel);
         }
     }
 }

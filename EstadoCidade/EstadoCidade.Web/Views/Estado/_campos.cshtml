@@ -1,0 +1,31 @@
+﻿@model EstadoCidade.Web.Models.EstadoViewModel
+
+<fieldset>
+    <div class="controls">
+        @Html.LabelFor(model => model.Nome)
+        @Html.EditorFor(model => model.Nome)
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+
+    <div class="controls">
+        @Html.LabelFor(model => model.Sigla)
+        @Html.EditorFor(model => model.Sigla)
+        @Html.ValidationMessageFor(model => model.Sigla)
+    </div>
+
+    <div class="controls">
+        @Html.LabelFor(model => model.Pais)
+        @Html.EditorFor(model => model.Pais)
+        @Html.ValidationMessageFor(model => model.Pais)
+    </div>
+
+    <div class="controls">
+        @Html.LabelFor(model => model.Regiao)
+        @Html.EditorFor(model => model.Regiao)
+        @Html.ValidationMessageFor(model => model.Regiao)
+    </div>
+
+    <p>
+        <input type="submit" class="btn btn-primary" value="Salvar" />
+    </p>
+</fieldset>

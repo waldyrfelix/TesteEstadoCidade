@@ -215,6 +215,7 @@
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\Excluir.js" />
     <Content Include="Scripts\jquery-2.0.2.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -237,6 +238,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Estado\Index.cshtml" />
     <Content Include="Views\Estado\Cadastrar.cshtml" />
+    <Content Include="Views\Estado\Editar.cshtml" />
+    <Content Include="Views\Estado\_campos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

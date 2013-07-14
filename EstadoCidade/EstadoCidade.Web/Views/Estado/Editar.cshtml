@@ -1,7 +1,7 @@
 ﻿@model EstadoCidade.Web.Models.EstadoViewModel
 
 @{
-    ViewBag.Title = "Cadastrar novo estado";
+    ViewBag.Title = "Alterar estado";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -10,6 +10,7 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
 
     @Html.Partial("_campos", Model)
 }
