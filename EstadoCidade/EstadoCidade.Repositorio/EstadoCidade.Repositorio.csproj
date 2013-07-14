@@ -43,6 +43,7 @@
     <Compile Include="Repositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioDeCidades.cs" />
+    <Compile Include="RepositorioDeEstado.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EstadoCidade.Dominio\EstadoCidade.Dominio.csproj">
