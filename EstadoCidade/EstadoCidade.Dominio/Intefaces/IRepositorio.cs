@@ -6,9 +6,9 @@ namespace EstadoCidade.Dominio.Intefaces
         where T : class
     {
         void Atualizar(T objeto);
-        void Excluir(int id);
+        void Excluir(T objeto);
         void Inserir(T objeto);
-        IEnumerable<T> Todas();
+        IEnumerable<T> Todos();
         T Obter(int id);
     }
 }

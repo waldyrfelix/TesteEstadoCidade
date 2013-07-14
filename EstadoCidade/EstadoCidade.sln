@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstadoCidade.Aplicacao", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstadoCidade.Web", "EstadoCidade.Web\EstadoCidade.Web.csproj", "{5287198F-22CE-48BD-9184-BFC19FD0BD66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstadoCidade.Testes", "EstadoCidade.Testes\EstadoCidade.Testes.csproj", "{625DDDD1-A284-48ED-A8B4-1B99CA5DC558}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{5287198F-22CE-48BD-9184-BFC19FD0BD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5287198F-22CE-48BD-9184-BFC19FD0BD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5287198F-22CE-48BD-9184-BFC19FD0BD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625DDDD1-A284-48ED-A8B4-1B99CA5DC558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625DDDD1-A284-48ED-A8B4-1B99CA5DC558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625DDDD1-A284-48ED-A8B4-1B99CA5DC558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625DDDD1-A284-48ED-A8B4-1B99CA5DC558}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
