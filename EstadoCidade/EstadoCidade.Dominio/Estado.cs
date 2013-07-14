@@ -7,7 +7,8 @@ namespace EstadoCidade.Dominio
     {
         private IList<Cidade> _cidades;
 
-        public Estado(int id, string uf, string nome):this(uf, nome)
+        public Estado(int id, string pais, string regiao, string sigla, string nome)
+            : this(pais, regiao, sigla, nome)
         {
             if (id <= 0)
                 throw new ArgumentException("Id deve ser maior que 0.", "id");
@@ -15,22 +16,30 @@ namespace EstadoCidade.Dominio
             this.Id = id;
         }
 
-        public Estado(string uf, string nome)
+        public Estado(string pais, string regiao, string sigla, string nome)
         {
-            if (String.IsNullOrEmpty(uf))
-                throw new ArgumentNullException("uf");
+            if (String.IsNullOrEmpty(pais))
+                throw new ArgumentNullException("pais");
+            if (String.IsNullOrEmpty(regiao))
+                throw new ArgumentNullException("regiao");
+            if (String.IsNullOrEmpty(sigla))
+                throw new ArgumentNullException("sigla");
             if (String.IsNullOrEmpty(nome))
                 throw new ArgumentNullException("nome");
-          
-            this.UF = uf;
+
+            this.Sigla = sigla;
             this.Nome = nome;
+            this.Pais = pais;
+            this.Regiao = regiao;
 
             _cidades = new List<Cidade>();
         }
 
         public int Id { get; protected set; }
-        public string UF { get; protected set; }
+        public string Sigla { get; protected set; }
         public string Nome { get; protected set; }
+        public string Pais { get; protected set; }
+        public string Regiao { get; protected set; }
 
         public IEnumerable<Cidade> Cidades
         {

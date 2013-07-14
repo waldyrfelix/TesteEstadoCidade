@@ -45,7 +45,7 @@ namespace EstadoCidade.Testes
         {
             // arrange
             var repositorio = new RepositorioDeCidades();
-            var cidade = new Cidade("São Paulo", 2);
+            var cidade = new Cidade("São Paulo", true, 2);
 
             // act
             repositorio.Inserir(cidade);
@@ -62,7 +62,7 @@ namespace EstadoCidade.Testes
         {
             // arrange
             var repositorio = new RepositorioDeCidades();
-            var cidade = new Cidade(1, "Recife", 1);
+            var cidade = new Cidade(1, "Recife", true, 1);
 
             // act
             repositorio.Excluir(cidade);
@@ -79,7 +79,7 @@ namespace EstadoCidade.Testes
         {
             // arrange
             var repositorio = new RepositorioDeCidades();
-            var cidade = new Cidade(2, "Marília", 2);
+            var cidade = new Cidade(2, "Marília", false, 2);
 
             // act
             repositorio.Atualizar(cidade);
@@ -88,6 +88,7 @@ namespace EstadoCidade.Testes
             var cidadeAlterada = repositorio.Obter(2);
             cidadeAlterada.Should().Not.Be.Null();
             cidadeAlterada.Nome.Should().Be.EqualTo("Marília");
+            cidadeAlterada.Capital.Should().Be.False();
         }
     }
 }

@@ -71,6 +71,13 @@ namespace EstadoCidade.Repositorio
             ExecutarComando((command) =>
                 {
                     command.CommandText = SqlParaObterUm;
+
+                    var parameter = command.CreateParameter();
+                    parameter.ParameterName = "@id";
+                    parameter.Value = id;
+
+                    command.Parameters.Add(parameter);
+
                     var reader = command.ExecuteReader();
                     objeto = reader.Read() ? HidratarObjeto(reader) : null;
                 });
@@ -93,7 +100,7 @@ namespace EstadoCidade.Repositorio
         protected abstract string SqlParaInserir { get; }
         protected abstract string SqlParaObterUm { get; }
         protected abstract T HidratarObjeto(DbDataReader dataReader);
-        protected abstract IEnumerable< DbParameter> PreencherParametros(DbCommand command, T objeto);
+        protected abstract IEnumerable<DbParameter> PreencherParametros(DbCommand command, T objeto);
 
         private void ExecutarComando(Action<DbCommand> action)
         {
