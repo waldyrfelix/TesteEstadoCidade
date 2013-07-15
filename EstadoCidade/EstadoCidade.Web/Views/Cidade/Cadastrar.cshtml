@@ -1,0 +1,23 @@
+﻿@model EstadoCidade.Web.Models.CidadeViewModel
+
+@{
+    ViewBag.Title = "Cadastrar nova cidade";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.Partial("_campos", Model)
+}
+
+<div>
+    @Html.ActionLink("Voltar para lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

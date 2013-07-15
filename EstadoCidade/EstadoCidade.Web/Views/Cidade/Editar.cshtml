@@ -1,0 +1,24 @@
+﻿@model EstadoCidade.Web.Models.CidadeViewModel
+
+@{
+    ViewBag.Title = "Alterar Cidade";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    @Html.Partial("_campos", Model)
+}
+
+<div>
+    @Html.ActionLink("Voltar para lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

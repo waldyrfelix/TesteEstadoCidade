@@ -1,0 +1,26 @@
+﻿@model EstadoCidade.Web.Models.CidadeViewModel
+
+<fieldset>
+    <div class="controls">
+        @Html.LabelFor(model => model.Nome)
+        @Html.EditorFor(model => model.Nome)
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+
+    <div class="controls">
+        <label class="checkbox">
+            @Html.CheckBoxFor(model => model.Capital) @Html.DisplayNameFor(model => model.Capital)
+        </label>
+        @Html.ValidationMessageFor(model => model.Capital)
+    </div>
+
+    <div class="controls">
+        @Html.LabelFor(model => model.EstadoId)
+        @Html.DropDownListFor(model => model.EstadoId, new SelectList(ViewBag.Estados, "Id", "Nome"))
+        @Html.ValidationMessageFor(model => model.EstadoId)
+    </div>
+
+    <p>
+        <input type="submit" class="btn btn-primary" value="Salvar" />
+    </p>
+</fieldset>

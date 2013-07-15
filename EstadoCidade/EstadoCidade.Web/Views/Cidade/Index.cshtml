@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EstadoCidade.Web.Models.CidadeViewModel>
+@{
+    ViewBag.Title = "Lista de Cidades";
+}
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Criar novo", "Cadastrar", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capital)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr data-id="@item.Id">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capital)
+            </td>
+            <td>
+                <a href="#" class="btn btn-danger btn-excluir" data-id="@item.Id">
+                    <i class="icon-remove icon-white"></i> Excluir
+                </a>
+                
+                <a href="@Url.Action("Editar", new { id = item.Id })" class="btn btn-success">
+                    <i class="icon-edit icon-white"></i> Editar
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div id="modalExcluir" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Confimação de exclusão</h3>
+    </div>
+    <div class="modal-body">
+        <p>Você deseja realmente excluir este item?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Não</button>
+        <button id="btn-confirmar-excluir" class="btn btn-primary" data-dismiss="modal" data-url="/api/cidade">Sim</button>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/Excluir.js"></script>
+}

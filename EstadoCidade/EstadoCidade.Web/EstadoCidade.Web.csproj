@@ -194,6 +194,7 @@
     <Compile Include="Controllers\Api\CidadeController.cs" />
     <Compile Include="Controllers\Api\EstadoController.cs" />
     <Compile Include="Controllers\ControllerHelper.cs" />
+    <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -240,6 +241,10 @@
     <Content Include="Views\Estado\Cadastrar.cshtml" />
     <Content Include="Views\Estado\Editar.cshtml" />
     <Content Include="Views\Estado\_campos.cshtml" />
+    <Content Include="Views\Cidade\_campos.cshtml" />
+    <Content Include="Views\Cidade\Cadastrar.cshtml" />
+    <Content Include="Views\Cidade\Editar.cshtml" />
+    <Content Include="Views\Cidade\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
